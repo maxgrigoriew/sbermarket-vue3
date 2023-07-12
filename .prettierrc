@@ -1,0 +1,17 @@
+{
+  "arrowParens": "always",
+  "useTabs": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "semi": false,
+  "trailingComma": "none",
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/styles/(.*)$",
+    "^../(.*)",
+    "^../../(.*)",
+    "^./(.*)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

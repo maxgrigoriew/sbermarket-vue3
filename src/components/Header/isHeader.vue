@@ -1,0 +1,156 @@
+<template>
+  <header class="header container">
+    <nav class="header__nav">
+      <div>
+        <img
+          class="header__logo"
+          src="/src/assets/images/icons/logo.svg"
+          alt=""
+        />
+      </div>
+      <IsHamburger />
+      <div>{{ input }}</div>
+      <IsInput v-model="input" />
+      <div class="input">
+        <!-- <Input class="input__inner" />
+        <MyButton class="searchBtn">
+				<FiSearch fontSize="{22}" />
+        </MyButton> -->
+      </div>
+
+      <ul class="iconList">
+        <li class="iconList__item">
+          <!-- <TopNotification /> -->
+          <MyButton class="button">
+            <!-- <RiShoppingBagLine fontSize="{22}" /> -->
+            <span class="iconList__text">Заказы</span>
+          </MyButton>
+        </li>
+        <li class="iconList__item">
+          <MyButton class="button">
+            <!-- <AiOutlineHeart fontSize="{22}" /> -->
+            <span class="iconList__text">Избранное</span>
+            <span class="counter">1</span>
+          </MyButton>
+        </li>
+        <li class="iconList__item">
+          <MyButton class="button">
+            <!-- <LuShoppingCart fontSize="{22}" /> -->
+            <span class=".iconList__text">Корзина</span>
+          </MyButton>
+        </li>
+        <li class="iconList__item">
+          <!-- <MyButton class=".button" onClick="{()" ="">
+            history.push(ADMIN_ROUTE)} >
+            <FiUserCheck fontSize="{22}" fontWeight="{500}" />
+            <span class=".iconList__text}">Выйти</span>
+          </MyButton>
+        
+          <MyButton class=".button}" onClick="{()" ="">
+            history.push(LOGIN_ROUTE)} >
+            <FiUser fontSize="{22}" fontWeight="{500}" />
+            <span class=".iconList__text}">Войти</span>
+          </MyButton> -->
+        </li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
+<script setup lang="ts">
+import isHamburger from './isHamburger.vue'
+import isButton from './../UI/isButton.vue'
+import IsHamburger from './isHamburger.vue'
+import IsInput from '../UI/isInput.vue'
+import { ref } from 'vue'
+
+const input = ref('1,')
+</script>
+<style lang="scss" scoped>
+@import 'src/assets/scss/vars';
+
+.header {
+  &__nav {
+    display: flex;
+    gap: 0 20px;
+    align-items: center;
+    padding: 20px 0;
+  }
+  &__logo {
+    width: 160px;
+  }
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  input {
+    max-width: 100%;
+  }
+}
+.searchBtn {
+  position: absolute;
+  right: 5px;
+  border-radius: 50%;
+  background-color: #9b38dc;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 43px;
+  width: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $transition;
+  border: 1px solid $accent;
+  color: $light;
+  &:hover {
+    color: $accent;
+    background-color: $light;
+    border: 1px solid $accent;
+  }
+}
+
+.iconList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 32px;
+  margin-left: auto;
+  color: $dark;
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  &.active .counter {
+    display: flex;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  height: 18px;
+  min-width: 24px;
+  background-color: $accent;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: $light;
+}
+</style>
