@@ -14,37 +14,29 @@
 
       <ul class="iconList">
         <li class="iconList__item">
-          <!-- <TopNotification /> -->
-          <MyButton class="button">
-            <!-- <RiShoppingBagLine fontSize="{22}" /> -->
-            <span class="iconList__text">Заказы</span>
-          </MyButton>
+          <isButton>
+            <font-awesome-icon icon="user" font-size="22" />
+            <span class="iconList__text">Войти</span>
+          </isButton>
         </li>
         <li class="iconList__item">
-          <MyButton class="button">
-            <!-- <AiOutlineHeart fontSize="{22}" /> -->
+          <isButton>
+            <font-awesome-icon icon="bag-shopping" font-size="22" />
+            <span class="iconList__text">Заказы</span>
+          </isButton>
+        </li>
+        <li class="iconList__item">
+          <isButton>
+            <font-awesome-icon icon="fa-heart" font-size="22" />
             <span class="iconList__text">Избранное</span>
             <span class="counter">1</span>
-          </MyButton>
+          </isButton>
         </li>
         <li class="iconList__item">
-          <MyButton class="button">
-            <!-- <LuShoppingCart fontSize="{22}" /> -->
-            <span class=".iconList__text">Корзина</span>
-          </MyButton>
-        </li>
-        <li class="iconList__item">
-          <!-- <MyButton class=".button" onClick="{()" ="">
-            history.push(ADMIN_ROUTE)} >
-            <FiUserCheck fontSize="{22}" fontWeight="{500}" />
-            <span class=".iconList__text}">Выйти</span>
-          </MyButton>
-        
-          <MyButton class=".button}" onClick="{()" ="">
-            history.push(LOGIN_ROUTE)} >
-            <FiUser fontSize="{22}" fontWeight="{500}" />
-            <span class=".iconList__text}">Войти</span>
-          </MyButton> -->
+          <isButton>
+            <font-awesome-icon icon="cart-shopping" font-size="22" />
+            <span class="iconList__text">Корзина</span>
+          </isButton>
         </li>
       </ul>
     </nav>
@@ -52,7 +44,6 @@
 </template>
 
 <script setup lang="ts">
-import isHamburger from './isHamburger.vue'
 import isButton from './../UI/isButton.vue'
 import IsHamburger from './isHamburger.vue'
 import IsInput from '../UI/isInput.vue'
@@ -116,6 +107,11 @@ const input = ref('1,')
     align-items: center;
     flex-direction: column;
     position: relative;
+  }
+  &__text {
+    display: inline-block;
+    padding-top: 5px;
+    font-size: 14px;
   }
 }
 

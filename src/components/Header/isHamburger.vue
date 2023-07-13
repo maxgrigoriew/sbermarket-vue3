@@ -1,10 +1,12 @@
 <template>
   <div class="hamburger">
     <isButton @click="click">
-      <span><font-awesome-icon icon="bars" /></span>
-      Меню
+      <span class="hamburger__icon">
+        <font-awesome-icon icon="bars" v-if="true" />
+        <font-awesome-icon icon="xmark" v-else />
+      </span>
+      <span class="hamburger__title"> Меню </span>
     </isButton>
-    <div>{{ isOpenMenu }}</div>
     <IsMenu :class="{ active: isOpenMenu }" />
   </div>
 </template>
@@ -13,14 +15,23 @@
 import { ref } from 'vue'
 import isButton from './../UI/isButton.vue'
 import IsMenu from './isMenu.vue'
-const isOpenMenu = ref(false)
+
+const isOpenMenu = ref(true)
+
 const click = () => {
   isOpenMenu.value = !isOpenMenu.value
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .hamburger {
   position: relative;
+  &__icon {
+    margin-right: 5px;
+    display: inline-block;
+  }
+  &__title {
+    display: inline-block;
+  }
 }
 </style>
