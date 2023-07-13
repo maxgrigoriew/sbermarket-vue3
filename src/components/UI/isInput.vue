@@ -3,13 +3,13 @@
     class="input"
     type="text"
     :value="props.modelValue"
-    v-on:input="updateValue($event.target.value)"
+    @input="updateValue($event.target.value)"
   />
 </template>
 <script setup lang="ts">
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps(['modelValue'])
-function updateValue(value) {
+function updateValue(value: EventTarget) {
   emit('update:modelValue', value)
 }
 </script>
@@ -18,6 +18,7 @@ function updateValue(value) {
 
 .input {
   border: 2px solid $accent;
+  border-radius: $big;
   background: #fff;
   height: 50px;
   padding: 0 20px;

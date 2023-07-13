@@ -1,6 +1,9 @@
 <template>
   <div class="hamburger">
-    <isButton @click="click"> [] Меню</isButton>
+    <isButton @click="click">
+      <span><font-awesome-icon icon="bars" /></span>
+      Меню
+    </isButton>
     <div>{{ isOpenMenu }}</div>
     <IsMenu :class="{ active: isOpenMenu }" />
   </div>

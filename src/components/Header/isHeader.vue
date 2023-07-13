@@ -9,14 +9,8 @@
         />
       </div>
       <IsHamburger />
-      <div>{{ input }}</div>
+
       <IsInput v-model="input" />
-      <div class="input">
-        <!-- <Input class="input__inner" />
-        <MyButton class="searchBtn">
-				<FiSearch fontSize="{22}" />
-        </MyButton> -->
-      </div>
 
       <ul class="iconList">
         <li class="iconList__item">
