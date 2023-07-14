@@ -7,6 +7,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-family: 'Open Sans', sans-serif;
+  color: $gray;
 }
 
 button {
@@ -40,7 +41,7 @@ img {
   display: block;
 }
 .container {
-  max-width: 1510px;
+  max-width: 1470px;
   padding: 0 20px;
   margin: 0 auto;
 }
