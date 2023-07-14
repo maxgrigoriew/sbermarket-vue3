@@ -18,13 +18,10 @@
 <script setup lang="ts">
 import isButton from './../UI/isButton.vue'
 import { ref } from 'vue'
-import ClickOutside from 'vue-click-outside'
 
 const isOpen = ref(true)
-const clickOutside = ClickOutside
-const closeModal = () => {
-  console.log('12')
 
+const closeModal = () => {
   isOpen.value = false
 }
 </script>

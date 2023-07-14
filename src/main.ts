@@ -15,6 +15,8 @@ import {
   faCartShopping,
   faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
+import vClickOutside from 'click-outside-vue3'
+
 library.add(
   faBars,
   faXmark,
@@ -28,5 +30,6 @@ library.add(
 createApp(App)
 
 const app = createApp(App)
+app.use(vClickOutside)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router).mount('#app')
