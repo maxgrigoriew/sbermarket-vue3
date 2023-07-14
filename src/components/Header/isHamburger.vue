@@ -1,11 +1,15 @@
 <template>
   <div class="hamburger">
-    <isButton @click="click">
+    <isButton class="btn" style="height: 50px" @click="changeMenu">
       <span class="hamburger__icon">
-        <font-awesome-icon icon="bars" v-if="true" />
-        <font-awesome-icon icon="xmark" v-else />
+        <font-awesome-icon
+          icon="bars"
+          v-if="isOpenMenu === false"
+          font-size="18"
+        />
+        <font-awesome-icon icon="xmark" v-else font-size="18" />
       </span>
-      <span class="hamburger__title"> Меню </span>
+      <span class="hamburger__title"> Каталог </span>
     </isButton>
     <IsMenu :class="{ active: isOpenMenu }" />
   </div>
@@ -16,10 +20,15 @@ import { ref } from 'vue'
 import isButton from './../UI/isButton.vue'
 import IsMenu from './isMenu.vue'
 
-const isOpenMenu = ref(true)
+const isOpenMenu = ref(false)
 
-const click = () => {
-  isOpenMenu.value = !isOpenMenu.value
+const changeMenu = () => {
+  if (isOpenMenu.value) {
+    isOpenMenu.value = false
+  } else {
+    isOpenMenu.value = true
+  }
+  console.log(isOpenMenu.value)
 }
 </script>
 
@@ -28,6 +37,7 @@ const click = () => {
   position: relative;
   &__icon {
     margin-right: 5px;
+    width: 20px;
     display: inline-block;
   }
   &__title {

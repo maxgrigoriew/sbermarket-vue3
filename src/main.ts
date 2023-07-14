@@ -12,9 +12,18 @@ import {
   faUser,
   faHeart,
   faShoppingBag,
-  faCartShopping
+  faCartShopping,
+  faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
-library.add(faBars, faXmark, faUser, faHeart, faShoppingBag, faCartShopping)
+library.add(
+  faBars,
+  faXmark,
+  faUser,
+  faHeart,
+  faShoppingBag,
+  faCartShopping,
+  faMagnifyingGlass
+)
 
 createApp(App)
 

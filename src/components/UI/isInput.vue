@@ -22,5 +22,7 @@ function updateValue(value: EventTarget) {
   background: #fff;
   height: 50px;
   padding: 0 20px;
+  width: 100%;
+  display: block;
 }
 </style>

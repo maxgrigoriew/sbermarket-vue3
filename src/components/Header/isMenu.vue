@@ -15,14 +15,14 @@
   position: fixed;
   top: 100px;
   bottom: 0;
-  left: 100%;
-  right: 100%;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
   background-color: $accent-light;
   color: $accent;
   transition: $transition;
   &.active {
-    right: 0;
-    left: 0;
+    transform: translateX(0);
   }
 }
 </style>

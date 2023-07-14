@@ -9,32 +9,31 @@
         />
       </div>
       <IsHamburger />
-
-      <IsInput v-model="input" />
-
+      <IsHeaderInput />
       <ul class="iconList">
         <li class="iconList__item">
           <isButton>
-            <font-awesome-icon icon="user" font-size="22" />
+            <font-awesome-icon icon="user" font-size="18" />
             <span class="iconList__text">Войти</span>
           </isButton>
+          <IsNotification />
         </li>
         <li class="iconList__item">
           <isButton>
-            <font-awesome-icon icon="bag-shopping" font-size="22" />
+            <font-awesome-icon icon="bag-shopping" font-size="18" />
             <span class="iconList__text">Заказы</span>
           </isButton>
         </li>
         <li class="iconList__item">
           <isButton>
-            <font-awesome-icon icon="fa-heart" font-size="22" />
+            <font-awesome-icon icon="fa-heart" font-size="18" />
             <span class="iconList__text">Избранное</span>
             <span class="counter">1</span>
           </isButton>
         </li>
         <li class="iconList__item">
           <isButton>
-            <font-awesome-icon icon="cart-shopping" font-size="22" />
+            <font-awesome-icon icon="cart-shopping" font-size="18" />
             <span class="iconList__text">Корзина</span>
           </isButton>
         </li>
@@ -48,8 +47,10 @@ import isButton from './../UI/isButton.vue'
 import IsHamburger from './isHamburger.vue'
 import IsInput from '../UI/isInput.vue'
 import { ref } from 'vue'
+import IsHeaderInput from './isHeaderInput.vue'
+import IsNotification from './isNotification.vue'
 
-const input = ref('1,')
+const input = ref('')
 </script>
 <style lang="scss" scoped>
 @import 'src/assets/scss/vars';
@@ -59,7 +60,7 @@ const input = ref('1,')
     display: flex;
     gap: 0 20px;
     align-items: center;
-    padding: 20px 0;
+    padding: 14px 0;
   }
   &__logo {
     width: 160px;
@@ -131,8 +132,8 @@ const input = ref('1,')
 
 .counter {
   position: absolute;
-  top: -10px;
-  right: 18px;
+  top: -5px;
+  right: 12px;
   height: 18px;
   min-width: 24px;
   background-color: $accent;
