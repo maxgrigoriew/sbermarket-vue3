@@ -13,7 +13,11 @@
         <div class="modal__top">
           <div class="modal__subtitle">Ваш регион</div>
           <isButton class="modal__close">
-            <font-awesome-icon icon="xmark" font-size="18" />
+            <font-awesome-icon
+              icon="xmark"
+              font-size="18"
+              @click="closeModal"
+            />
           </isButton>
         </div>
         <div class="modal__middle">
@@ -39,9 +43,7 @@ import { ref } from 'vue'
 import isButton from '../UI/isButton.vue'
 
 const isOpen = ref<Boolean>(false)
-const closeModal = () => {
-  isOpen.value = false
-}
+const closeModal = () => (isOpen.value = false)
 </script>
 
 <style lang="scss" scoped>
@@ -71,10 +73,12 @@ const closeModal = () => {
   }
   &__content {
     position: absolute;
+    z-index: 10;
     top: 60px;
     right: 0;
     box-shadow: $shadow;
     border-radius: $middle;
+    background-color: $light;
     padding: 24px;
     min-width: 600px;
   }

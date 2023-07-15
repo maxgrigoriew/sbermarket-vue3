@@ -17,6 +17,7 @@
     "click-outside-vue3": "^4.0.1",
     "prettier": "^3.0.0",
     "sass": "^1.63.6",
+    "swiper": "^10.0.4",
     "vue": "^3.3.4",
     "vue-click-outside": "^1.1.0",
     "vue-router": "^4.2.4",

@@ -17,6 +17,7 @@ import {
   faAngleDown
 } from '@fortawesome/free-solid-svg-icons'
 import vClickOutside from 'click-outside-vue3'
+import 'swiper/css'
 
 library.add(
   faBars,
