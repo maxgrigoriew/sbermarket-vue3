@@ -19,7 +19,7 @@
 import isButton from './../UI/isButton.vue'
 import { ref } from 'vue'
 
-const isOpen = ref(true)
+const isOpen = ref(false)
 
 const closeModal = () => {
   isOpen.value = false

@@ -13,7 +13,8 @@ import {
   faHeart,
   faShoppingBag,
   faCartShopping,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faAngleDown
 } from '@fortawesome/free-solid-svg-icons'
 import vClickOutside from 'click-outside-vue3'
 
@@ -24,7 +25,8 @@ library.add(
   faHeart,
   faShoppingBag,
   faCartShopping,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faAngleDown
 )
 
 createApp(App)

@@ -13,18 +13,16 @@ const props = defineProps(['linkItem'])
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/vars';
+@import '../../assets/scss/mixins';
 
 .top-link {
   &__item {
-    border-radius: $middle;
-    background-color: $gray-light;
-    height: 48px;
+    @include button-gray;
   }
 
   &__link {
     display: flex;
     align-items: center;
-    padding: 0 15px;
     height: 100%;
     color: $dark;
     font-size: 14px;

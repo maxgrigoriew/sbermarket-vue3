@@ -18,10 +18,10 @@ const className = computed(() => ({
 .btn-empty {
   color: $dark;
   border-radius: none;
-  background-color: red;
+  align-self: a;
 }
 .btn {
-  border-radius: 32px;
+  border-radius: $big;
   background-color: $accent;
   color: $light;
   padding: 10px 24px;
@@ -33,6 +33,17 @@ const className = computed(() => ({
   transition: $transition;
   &:hover {
     background-color: $accent-dark;
+  }
+}
+
+.btn-outline {
+  border-radius: $big;
+  color: $accent;
+  border: 2px solid $accent;
+  background-color: $light;
+  &:hover {
+    background-color: $accent;
+    color: $light;
   }
 }
 </style>
