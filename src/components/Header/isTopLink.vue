@@ -1,17 +1,19 @@
 <template>
   <li class="top-link__item">
-    <a href="#" class="top-link__link">
+    <isButton class="top-link__link">
       <img class="top-link__icon" :src="props.linkItem.img" alt="link" />
       <span class="top-link__title"> {{ props.linkItem.title }} </span>
-    </a>
+    </isButton>
   </li>
 </template>
 
 <script setup lang="ts">
+import isButton from '../UI/isButton.vue'
 const props = defineProps(['linkItem'])
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/vars';
+
 .top-link {
   &__item {
     border-radius: $middle;
@@ -26,6 +28,10 @@ const props = defineProps(['linkItem'])
     height: 100%;
     color: $dark;
     font-size: 14px;
+    transition: $transition;
+    &:hover {
+      color: $accent;
+    }
   }
   &__icon {
     width: 24px;
