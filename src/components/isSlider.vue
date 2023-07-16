@@ -1,30 +1,47 @@
 <template>
-  <swiper :slides-per-view="1.3" :space-between="24">
+  <swiper
+    :slides-per-view="props.slidesPerView"
+    :space-between="24"
+    :modules="[Navigation]"
+    :navigation="true"
+  >
     <swiper-slide
       class="slider"
-      v-for="slider in sliders"
+      v-for="slider in props.sliders"
       :key="slider.src"
-      :pagination="{ clickable: true }"
     >
-      <img :src="slider.src" alt="" />
+      <img :src="slider.src" alt="" :style="{ height: props.height }" />
     </swiper-slide>
-
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-button-prev slider__arrow left">
-      <font-awesome-icon class="modal__arrow" icon="angle-down" />
-    </div>
-    <div class="swiper-button-next slider__arrow right">
-      <font-awesome-icon class="modal__arrow" icon="angle-down" />
-    </div>
   </swiper>
+  <!-- <div class="swiper-button-prev slider__arrow left">
+    <font-awesome-icon class="modal__arrow" icon="angle-down" />
+  </div>
+  <div class="swiper-button-next slider__arrow right">
+    <font-awesome-icon class="modal__arrow" icon="angle-down" />
+  </div> -->
 </template>
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { sliders } from './../data-test/top-slider.ts'
-// import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+const props = defineProps({
+  slidesPerView: {
+    type: Number,
+    default: 1,
+    require: true
+  },
+  sliders: {
+    type: [],
+    require: true
+  },
+  height: {
+    type: String,
+    default: '400px'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -37,15 +54,16 @@ import 'swiper/css/pagination'
   & img {
     display: block;
     width: 100%;
-    height: 400px;
+    // height: 400px;
     object-fit: cover;
   }
 
   &__arrow {
     position: absolute;
+    z-index: 20;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 20;
+    z-index: 20000;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -67,5 +85,19 @@ import 'swiper/css/pagination'
       transform: rotate(-90deg);
     }
   }
+}
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color, var(--swiper-theme-color));
 }
 </style>

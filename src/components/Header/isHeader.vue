@@ -45,12 +45,8 @@
 <script setup lang="ts">
 import isButton from './../UI/isButton.vue'
 import IsHamburger from './isHamburger.vue'
-import IsInput from '../UI/isInput.vue'
-import { ref } from 'vue'
 import IsHeaderInput from './isHeaderInput.vue'
 import IsNotification from './isNotification.vue'
-
-const input = ref('')
 </script>
 <style lang="scss" scoped>
 @import 'src/assets/scss/vars';

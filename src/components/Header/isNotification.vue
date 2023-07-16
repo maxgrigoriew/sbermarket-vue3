@@ -19,7 +19,7 @@
 import isButton from './../UI/isButton.vue'
 import { ref } from 'vue'
 
-const isOpen = ref(false)
+const isOpen = ref(true)
 
 const closeModal = () => {
   isOpen.value = false
@@ -36,6 +36,7 @@ const closeModal = () => {
   border-radius: $big;
   color: $light;
   padding: 32px;
+  z-index: 30;
   &::before {
     content: '';
     position: absolute;

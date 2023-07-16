@@ -11,14 +11,14 @@
       </span>
       <span class="hamburger__title"> Каталог </span>
     </isButton>
-    <IsMenu :class="{ active: isOpenMenu }" />
+    <isMenu :class="{ active: isOpenMenu }" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import isButton from './../UI/isButton.vue'
-import IsMenu from './isMenu.vue'
+import isMenu from './isMenu.vue'
 
 const isOpenMenu = ref(false)
 
@@ -28,7 +28,6 @@ const changeMenu = () => {
   } else {
     isOpenMenu.value = true
   }
-  console.log(isOpenMenu.value)
 }
 </script>
 

@@ -18,7 +18,7 @@ function updateValue(value: EventTarget) {
 
 .input {
   border: 2px solid $accent;
-  border-radius: $big;
+  border-radius: $pre-big;
   background: #fff;
   height: 50px;
   padding: 0 20px;

@@ -13,7 +13,7 @@
 
 .menu {
   position: fixed;
-  top: 100px;
+  top: 80px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -21,6 +21,7 @@
   background-color: $accent-light;
   color: $accent;
   transition: $transition;
+  z-index: 10;
   &.active {
     transform: translateX(0);
   }
