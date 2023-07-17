@@ -21,7 +21,7 @@
   background-color: $accent-light;
   color: $accent;
   transition: $transition;
-  z-index: 10;
+  z-index: 100;
   &.active {
     transform: translateX(0);
   }

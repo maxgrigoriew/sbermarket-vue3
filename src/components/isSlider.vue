@@ -71,7 +71,7 @@ const next = ref(null)
 
   &__arrow {
     position: absolute;
-    z-index: 200;
+    z-index: 20 !important;
     top: 50%;
     z-index: 20000;
     width: 50px !important;
@@ -89,6 +89,7 @@ const next = ref(null)
   }
   &__arrow.swiper-button-disabled {
     opacity: 0.5;
+    cursor: auto;
   }
   &__arrow.left {
     left: -25px;
