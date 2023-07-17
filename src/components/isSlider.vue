@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" style="position: relative">
+  <div class="wrapper">
     <swiper
       :slides-per-view="props.slidesPerView"
       :space-between="24"
@@ -56,15 +56,16 @@ const next = ref(null)
 
 <style lang="scss" scoped>
 @import './../assets/scss/vars.scss';
+.wrapper {
+  position: relative;
+}
 .slider {
-  background-color: $accent;
-  border-radius: $big;
   overflow: hidden;
   position: relative;
   & img {
-    display: block;
     width: 100%;
-    // height: 400px;
+    display: block;
+    border-radius: $big;
     object-fit: cover;
   }
 
