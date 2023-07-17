@@ -63,7 +63,7 @@ import isButton from './../UI/isButton.vue'
 import isInput from './../UI/isInput.vue'
 import { onMounted, ref } from 'vue'
 const input = ref('')
-const isOpenOffer = ref(true)
+const isOpenOffer = ref(false)
 let historySearch = ref([])
 
 const openOfferModal = () => (isOpenOffer.value = true)
@@ -80,7 +80,7 @@ const addLocalStorage = () => {
   }
   const newSearhWord = {
     id: Date.now(),
-    title: input.value
+    title: input.value.toLocaleLowerCase()
   } as NewSearchWord
   if (input.value) {
     historySearch.value.push(newSearhWord)
