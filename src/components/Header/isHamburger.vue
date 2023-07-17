@@ -31,7 +31,10 @@ const changeMenu = () => {
   }
 }
 
-const closeMenu = () => (isOpenMenu.value = false)
+const closeMenu = () => {
+  isOpenMenu.value = false
+  document.querySelector('body')?.classList.remove('active')
+}
 </script>
 
 <style lang="scss" scoped>
