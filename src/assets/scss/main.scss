@@ -11,6 +11,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: $gray;
 }
+body.active {
+  overflow-y: hidden;
+}
 
 button {
   background-color: transparent;

@@ -1,26 +1,56 @@
 <template>
-  <div class="header-input">
-    <isInput :class="{ headerInputComponent: isOpen }" v-model="input" />
+  <div class="header-input" v-click-outside="closeOfferModal">
+    <isInput
+      :class="{ headerInputComponent: isOpenOffer }"
+      v-model="input"
+      @click="openOfferModal"
+    />
     <isButton class="btn header-input__btn">
       <font-awesome-icon icon="magnifying-glass" font-size="18" />
     </isButton>
-    <div class="offer">
-      <div class="offer__title">Часто ищут</div>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <span class="offer__icon"
-            ><font-awesome-icon icon="magnifying-glass"
-          /></span>
-          <span class="offer__text">Сахар</span>
-        </li>
-        <li class="offer__item">
-          <span class="offer__icon"
-            ><font-awesome-icon icon="magnifying-glass"
-          /></span>
-          <span class="offer__text">Мука</span>
-        </li>
-      </ul>
-    </div>
+
+    <transition name="fade">
+      <div class="offer" v-if="isOpenOffer">
+        <div class="offer__history">
+          <div class="offer__history-top">
+            <div class="offer__history-title">Вы недавно искали</div>
+            <isButton class="offer__history-btn">Очистить</isButton>
+          </div>
+          <ul class="offer__list offer__history-list">
+            <li
+              class="offer__item"
+              v-for="item in 4"
+              :key="item"
+              @click="addWordInput(item)"
+            >
+              <span class="offer__icon"
+                ><font-awesome-icon icon="magnifying-glass"
+              /></span>
+              <span class="offer__text">Сахар + {{ item }}</span>
+              <font-awesome-icon
+                class="offer__history-close"
+                icon="xmark"
+                font-size="18"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="offer__title">Часто ищут</div>
+        <ul class="offer__list">
+          <li
+            class="offer__item"
+            v-for="item in 4"
+            :key="item"
+            @click="addWordInput(item)"
+          >
+            <span class="offer__icon"
+              ><font-awesome-icon icon="magnifying-glass"
+            /></span>
+            <span class="offer__text">Сахар + {{ item }}</span>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -29,7 +59,14 @@ import isButton from './../UI/isButton.vue'
 import isInput from './../UI/isInput.vue'
 import { ref } from 'vue'
 const input = ref('')
-const isOpen = ref(true)
+const isOpenOffer = ref(true)
+
+const openOfferModal = () => (isOpenOffer.value = true)
+const closeOfferModal = () => (isOpenOffer.value = false)
+const addWordInput = item => {
+  input.value = item
+  closeOfferModal()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -58,24 +95,61 @@ const isOpen = ref(true)
   box-shadow:
     0 0 2px rgba(0, 0, 0, 0.08),
     0 2px 24px rgba(0, 0, 0, 0.06);
+  outline: none;
 }
 .offer {
   position: absolute;
   top: 50px;
-  background-color: $light;
+  background-color: #fff;
   left: 0;
   right: 0;
   min-height: 100px;
   box-shadow: $shadow;
-  padding: $middle;
   padding-top: $pre-big;
   border-bottom-right-radius: $pre-big;
   border-bottom-left-radius: $pre-big;
   color: $black;
   font-size: 14px;
   z-index: 10;
+  padding: $pre-big 0;
+  &__history {
+    &-list {
+      padding-bottom: $pre-big;
+    }
+    &-top {
+      display: flex;
+      padding: 0 $pre-big;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    &-title {
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    &-btn {
+      color: $gray;
+      transition: $transition;
+      &:hover {
+        color: $accent;
+      }
+    }
+    &-close {
+      transition: $transition;
+      margin-left: auto;
+      color: $gray;
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
   &__item {
     cursor: pointer;
+    transition: $transition;
+    padding: 5px $pre-big;
+    display: flex;
+    &:hover {
+      background-color: $gray-light;
+    }
     &:hover .offer__text {
       color: $accent;
     }
@@ -85,7 +159,8 @@ const isOpen = ref(true)
   }
   &__title {
     font-weight: 700;
-    margin-bottom: 10px;
+    padding: 0 $pre-big;
+    margin-bottom: 6px;
   }
   &__icon {
     margin-right: 10px;
