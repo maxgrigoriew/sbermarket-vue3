@@ -1,36 +1,40 @@
 <template>
   <div class="header-input" v-click-outside="closeOfferModal">
     <isInput
+      class="header-input__component"
       :class="{ headerInputComponent: isOpenOffer }"
       v-model="input"
       @click="openOfferModal"
     />
-    <isButton class="btn header-input__btn">
+    <isButton class="btn header-input__btn" @click="addLocalStorage">
       <font-awesome-icon icon="magnifying-glass" font-size="18" />
     </isButton>
 
     <transition name="fade">
       <div class="offer" v-if="isOpenOffer">
-        <div class="offer__history">
+        <div class="offer__history" v-if="historySearch.length > 0">
           <div class="offer__history-top">
             <div class="offer__history-title">Вы недавно искали</div>
-            <isButton class="offer__history-btn">Очистить</isButton>
+            <isButton class="offer__history-btn" @click="clearHistory"
+              >Очистить</isButton
+            >
           </div>
           <ul class="offer__list offer__history-list">
             <li
               class="offer__item"
-              v-for="item in 4"
+              v-for="item in historySearch"
               :key="item"
-              @click="addWordInput(item)"
+              @click="addWordInput(item.title)"
             >
               <span class="offer__icon"
                 ><font-awesome-icon icon="magnifying-glass"
               /></span>
-              <span class="offer__text">Сахар + {{ item }}</span>
+              <span class="offer__text">{{ item.title }}</span>
               <font-awesome-icon
                 class="offer__history-close"
                 icon="xmark"
                 font-size="18"
+                @click.stop="clearHistoryItem(item.id)"
               />
             </li>
           </ul>
@@ -57,16 +61,52 @@
 <script setup lang="ts">
 import isButton from './../UI/isButton.vue'
 import isInput from './../UI/isInput.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 const input = ref('')
 const isOpenOffer = ref(true)
+let historySearch = ref([])
 
 const openOfferModal = () => (isOpenOffer.value = true)
 const closeOfferModal = () => (isOpenOffer.value = false)
-const addWordInput = item => {
+const addWordInput = (item: string) => {
   input.value = item
   closeOfferModal()
 }
+
+const addLocalStorage = () => {
+  interface NewSearchWord {
+    id: number
+    title: string
+  }
+  const newSearhWord = {
+    id: Date.now(),
+    title: input.value
+  } as NewSearchWord
+  if (input.value) {
+    historySearch.value.push(newSearhWord)
+    localStorage.setItem('historySearch', JSON.stringify(historySearch.value))
+    closeOfferModal()
+  }
+}
+
+const clearHistory = () => {
+  historySearch.value = []
+  localStorage.setItem('historySearch', JSON.stringify([]))
+}
+
+const clearHistoryItem = (id: number) => {
+  historySearch.value = historySearch.value.filter((searchWord: any) => {
+    return searchWord.id !== id
+  })
+  localStorage.setItem('historySearch', JSON.stringify(historySearch.value))
+  input.value = ''
+}
+
+onMounted(() => {
+  if (localStorage.getItem('historySearch')) {
+    historySearch.value = JSON.parse(localStorage.getItem('historySearch'))
+  }
+})
 </script>
 
 <style lang="scss" scoped>
