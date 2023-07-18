@@ -4,8 +4,8 @@
     <isPromo class="mb" />
     <div class="banner">
       <img src="/public/images/promo-slider/3.webp" alt="" />
-    </div> -->
-    <!-- <isSlider
+    </div> 
+    <isSlider
       :slidesPerView="4"
       :sliders="promoSliders"
       height="340px"

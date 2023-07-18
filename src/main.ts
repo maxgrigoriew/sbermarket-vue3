@@ -9,26 +9,32 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faBars,
   faXmark,
-  faUser,
-  faHeart,
   faShoppingBag,
   faCartShopping,
   faMagnifyingGlass,
   faAngleDown,
-  faEllipsisVertical
+  faEllipsisVertical,
+  faInfo,
+  faStar
 } from '@fortawesome/free-solid-svg-icons'
+
+import { faCircle, faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
+
 import vClickOutside from 'click-outside-vue3'
 
 library.add(
   faBars,
   faXmark,
   faUser,
-  faHeart,
   faShoppingBag,
   faCartShopping,
   faMagnifyingGlass,
   faAngleDown,
-  faEllipsisVertical
+  faEllipsisVertical,
+  faInfo,
+  faStar,
+  faHeart,
+  faCircle
 )
 
 createApp(App)
