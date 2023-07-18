@@ -5,8 +5,12 @@ import isHeader from './../components/Header/isHeader.vue'
 </script>
 <template>
   <div>
+    <div class="wrapper-header">
+      <div class="container">
+        <isHeader />
+      </div>
+    </div>
     <div class="container">
-      <isHeader />
       <div class="top">
         <isTopLinks />
         <IsSelectModal />
@@ -17,6 +21,13 @@ import isHeader from './../components/Header/isHeader.vue'
 </template>
 
 <style lang="scss" scoped>
+@import './../assets/scss/vars';
+.wrapper-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: $light;
+}
 .top {
   display: flex;
   justify-content: space-between;
