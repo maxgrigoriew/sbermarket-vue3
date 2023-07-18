@@ -11,6 +11,11 @@
         </div>
         <isButton class="noty__btn btn">Подробнее</isButton>
       </div>
+      <img
+        class="noty__img"
+        src="./../../assets//images/icons/letter.webp"
+        alt="letter"
+      />
     </div>
   </transition>
 </template>
@@ -66,6 +71,11 @@ const closeModal = () => {
   }
   &__text {
     margin-bottom: 24px;
+  }
+  &__img {
+    position: absolute;
+    right: -23px;
+    bottom: -10px;
   }
 }
 </style>
