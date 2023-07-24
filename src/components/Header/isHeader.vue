@@ -73,7 +73,7 @@
               />
             </svg>
             <span class="iconList__text">Избранное</span>
-            <span class="counter">1</span>
+            <span class="counter">{{ countFavoriteStatus }}</span>
           </isButton>
         </li>
         <li class="iconList__item">
@@ -106,6 +106,14 @@ import isButton from './../UI/isButton.vue'
 import IsHamburger from './isHamburger.vue'
 import IsHeaderInput from './isHeaderInput.vue'
 import IsNotification from './isNotification.vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+
+const store = useStore()
+
+const countFavoriteStatus = computed(
+  () => store.state.favorites.filter(item => item.isFavoriteStatus).length
+)
 </script>
 <style lang="scss" scoped>
 @import 'src/assets/scss/vars';

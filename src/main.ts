@@ -6,6 +6,8 @@ import './assets/scss/main.scss'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { store } from './store.ts'
+
 import {
   faBars,
   faXmark,
@@ -41,5 +43,6 @@ createApp(App)
 
 const app = createApp(App)
 app.use(vClickOutside)
+app.use(store)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router).mount('#app')

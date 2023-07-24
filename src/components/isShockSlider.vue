@@ -9,7 +9,11 @@
         nextEl: next
       }"
     >
-      <swiper-slide class="slider" v-for="slider in 7" :key="slider">
+      <swiper-slide
+        class="slider"
+        v-for="(slider, ind) in store.state.favorites"
+        :key="slider.id"
+      >
         <div class="slide">
           <img
             class="slide__action"
@@ -26,8 +30,8 @@
             <div class="slide__top-icons">
               <isButton
                 class="slide__top-icons__btn"
-                :class="{ active: isFavoriteStatus }"
-                @click="changeFavoriteStatus"
+                :class="{ active: slider.isFavoriteStatus }"
+                @click="changeFavoriteStatus(slider.id)"
               >
                 <svg
                   width="24"
@@ -116,11 +120,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
 import isButton from './UI/isButton.vue'
 import 'swiper/css'
+import { useStore } from 'vuex'
 
 const props = defineProps({
   slidesPerView: {
@@ -142,12 +147,13 @@ const props = defineProps({
   }
 })
 
+const store = useStore()
 const prev = ref(null)
 const next = ref(null)
 const isFavoriteStatus = ref(true)
 
-const changeFavoriteStatus = () => {
-  isFavoriteStatus.value = !isFavoriteStatus.value
+const changeFavoriteStatus = (id: number) => {
+  store.commit('changeFavoriteStatus', id)
 }
 </script>
 
