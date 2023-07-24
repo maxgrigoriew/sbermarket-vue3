@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
 import isButton from './UI/isButton.vue'
@@ -153,8 +153,12 @@ const next = ref(null)
 const isFavoriteStatus = ref(true)
 
 const changeFavoriteStatus = (id: number) => {
-  store.commit('changeFavoriteStatus', id)
+  store.dispatch('localStorageFavoriteStatus', id)
 }
+
+onMounted(() => {
+  store.commit('setFavoriteStatus')
+})
 </script>
 
 <style lang="scss" scoped>

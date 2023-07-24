@@ -42,16 +42,22 @@ export const store = createStore({
     }
   },
   mutations: {
-    increment(state) {
-      state.count++
+    setFavoriteStatus(state) {
+      if (localStorage.getItem('favorites')) {
+        state.favorites = JSON.parse(localStorage.getItem('favorites'))
+      }
     },
     changeFavoriteStatus(state, id) {
-      console.log(id)
-
       const findItem = state.favorites.find(item => item.id === id)
       if (findItem) {
         findItem.isFavoriteStatus = !findItem.isFavoriteStatus
       }
+    }
+  },
+  actions: {
+    localStorageFavoriteStatus({ commit, state }, id) {
+      commit('changeFavoriteStatus', id)
+      localStorage.setItem('favorites', JSON.stringify(state.favorites))
     }
   }
 })
