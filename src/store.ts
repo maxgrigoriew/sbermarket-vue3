@@ -47,6 +47,7 @@ export const store = createStore({
         state.favorites = JSON.parse(localStorage.getItem('favorites'))
       }
     },
+
     changeFavoriteStatus(state, id) {
       const findItem = state.favorites.find(item => item.id === id)
       if (findItem) {

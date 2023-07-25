@@ -1,5 +1,6 @@
 <template>
   <main class="main">
+    <is-login />
     <!-- <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
     <isPromo class="mb" />
     <div class="banner">
@@ -23,6 +24,7 @@ import isSlider from './../components/isSlider.vue'
 import isShockSlider from './../components/isShockSlider.vue'
 import { sliders } from './../data-test/top-slider.ts'
 import { promoSliders } from './../data-test/promo-slider.ts'
+// import IsLogin from '../components/Modals/isLogin.vue'
 </script>
 
 <style lang="scss" scoped>

@@ -8,10 +8,13 @@
         prevEl: prev,
         nextEl: next
       }"
+      :autoplay="{
+        delay: 500
+      }"
     >
       <swiper-slide
         class="slider"
-        v-for="(slider, ind) in store.state.favorites"
+        v-for="slider in store.state.favorites"
         :key="slider.id"
       >
         <div class="slide">
@@ -122,9 +125,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
 import isButton from './UI/isButton.vue'
 import 'swiper/css'
+import 'swiper/css/autoplay'
 import { useStore } from 'vuex'
 
 const props = defineProps({

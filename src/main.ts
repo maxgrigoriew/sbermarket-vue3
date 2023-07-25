@@ -39,10 +39,16 @@ library.add(
   faCircle
 )
 
-createApp(App)
+import { components } from './components.ts'
 
 const app = createApp(App)
+
 app.use(vClickOutside)
 app.use(store)
 app.component('font-awesome-icon', FontAwesomeIcon)
+
+Object.entries(components).forEach(([name, component]) => {
+  app.component(name, component)
+})
+
 app.use(router).mount('#app')
