@@ -5,29 +5,33 @@
         <button class="login__close" @click="store.commit('closeModal')">
           <font-awesome-icon icon="xmark" font-size="18" />
         </button>
-        <div class="login__title">Войдите или зарегистрируйтесь</div>
-        <div class="login__subtitle">
-          Сможете отслеживать заказы в личном кабинете и тратить бонусы
+        <div>
+          <h3 class="login__title">Войдите или зарегистрируйтесь</h3>
+          <p class="login__subtitle">
+            Сможете отслеживать заказы в личном кабинете и тратить бонусы
+          </p>
         </div>
         <div class="login__buttons">
           <isButton class="btn"> Войти по Сбер ID</isButton>
           <isButton class="btn">Войти по номеру телефона</isButton>
         </div>
-        <label class="login__label">
-          <input class="login__checkbox" type="checkbox" />
-          <span
-            >Получать информацию о скидках, специальных предложениях и
-            акциях</span
-          >
-        </label>
-        <p class="login__capcha">
-          При входе и регистрации вы предоставляете Согласие на обработку
-          персональных данных в соответствии с Политикой обработки персональных
-          данных, а также соглашаетесь с Политикой обработки персональных
-          данных, Условиями использования сайта и Правилами программы
-          лояльности. Защита от спама reCAPTCHA: Конфиденциальность и Условия
-          использования.
-        </p>
+        <div>
+          <label class="login__label">
+            <input class="login__checkbox" type="checkbox" />
+            <span
+              >Получать информацию о скидках, специальных предложениях и
+              акциях</span
+            >
+          </label>
+          <p class="login__capcha">
+            При входе и регистрации вы предоставляете Согласие на обработку
+            персональных данных в соответствии с Политикой обработки
+            персональных данных, а также соглашаетесь с Политикой обработки
+            персональных данных, Условиями использования сайта и Правилами
+            программы лояльности. Защита от спама reCAPTCHA: Конфиденциальность
+            и Условия использования.
+          </p>
+        </div>
       </div>
     </div>
   </transition>
@@ -39,7 +43,7 @@ import { useStore } from 'vuex'
 
 const store = useStore()
 
-const closeModal = () => {
+const closeModal = (): void => {
   store.commit('closeModal')
 }
 </script>
@@ -64,7 +68,7 @@ const closeModal = () => {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: 15px 0;
+    gap: 15% 0;
     &::before {
       content: '';
       display: block;
@@ -107,8 +111,23 @@ const closeModal = () => {
     font-size: 16px;
     color: $black;
   }
+  &__buttons {
+    margin-bottom: 20px;
+    & button:first-child {
+      background-color: #21a038;
+      &:hover {
+        background-color: #116b22;
+      }
+    }
+    & button:last-child {
+      background-color: $gray-light;
+      color: $dark;
+      &:hover {
+        background-color: #d2d3d6;
+      }
+    }
+  }
   &__buttons > button {
-    background-color: #21a038 !important;
     width: 100%;
     margin-bottom: 10px;
     height: 48px;
