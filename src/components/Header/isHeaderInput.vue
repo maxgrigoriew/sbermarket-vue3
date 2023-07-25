@@ -10,7 +10,7 @@
       <font-awesome-icon icon="magnifying-glass" font-size="18" />
     </isButton>
 
-    <transition name="fade">
+    <Transition>
       <div class="offer" v-if="isOpenOffer">
         <div class="offer__history" v-if="historySearch.length > 0">
           <div class="offer__history-top">
@@ -54,7 +54,7 @@
           </li>
         </ul>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 

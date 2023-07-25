@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <Transition>
     <div class="login" v-if="store.state.isOpenLoginModal">
       <div class="login__inner" v-click-outside="closeModal">
         <button class="login__close" @click="store.commit('closeModal')">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-  </transition>
+  </Transition>
 </template>
 
 <script setup lang="ts">

@@ -3,7 +3,6 @@ import { createStore } from 'vuex'
 export const store = createStore({
   state() {
     return {
-      count: 0,
       favorites: [
         {
           id: 1,
@@ -34,7 +33,7 @@ export const store = createStore({
           isFavoriteStatus: true
         }
       ],
-      isOpenLoginModal: true
+      isOpenLoginModal: false
     }
   },
   getters: {

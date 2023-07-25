@@ -8,7 +8,7 @@
         icon="angle-down"
       />
     </isButton>
-    <transition name="fade">
+    <Transition>
       <div class="modal__content" v-if="isOpen" v-click-outside="closeModal">
         <div class="modal__top">
           <div class="modal__subtitle">Ваш регион</div>
@@ -34,7 +34,7 @@
           </isButton>
         </div>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 
