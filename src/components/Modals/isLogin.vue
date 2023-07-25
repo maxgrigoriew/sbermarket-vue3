@@ -142,6 +142,7 @@ const closeModal = (): void => {
     display: flex;
     align-items: flex-start;
     cursor: pointer;
+    margin-bottom: 10px;
   }
   &__checkbox {
     margin-top: 4px;

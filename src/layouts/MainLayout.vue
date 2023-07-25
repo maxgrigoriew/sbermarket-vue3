@@ -15,13 +15,19 @@ import isHeader from './../components/Header/isHeader.vue'
         <isTopLinks />
         <IsSelectModal />
       </div>
-      <slot></slot>
+
+      <main class="main">
+        <slot />
+      </main>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import './../assets/scss/vars';
+.main {
+  padding-top: 40px;
+}
 .wrapper-header {
   position: sticky;
   top: 0;

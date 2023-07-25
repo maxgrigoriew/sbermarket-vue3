@@ -1,7 +1,6 @@
 <template>
-  <main class="main">
-    <is-login />
-    <!-- <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
+  <is-login />
+  <!-- <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
     <isPromo class="mb" />
     <div class="banner">
       <img src="/public/images/promo-slider/3.webp" alt="" />
@@ -14,8 +13,7 @@
       style="margin-bottom: 80px"
     /> -->
 
-    <isShockSlider :slidesPerView="6" style="margin-bottom: 80px" />
-  </main>
+  <isShockSlider :slidesPerView="6" style="margin-bottom: 80px" />
 </template>
 
 <script setup lang="ts">

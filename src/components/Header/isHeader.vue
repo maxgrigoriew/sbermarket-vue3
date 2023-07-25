@@ -77,7 +77,7 @@
           </isButton>
         </li>
         <li class="iconList__item">
-          <isButton>
+          <router-link to="/basket">
             <svg
               width="800px"
               height="800px"
@@ -94,7 +94,7 @@
               />
             </svg>
             <span class="iconList__text">Корзина</span>
-          </isButton>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -183,7 +183,8 @@ const countFavoriteStatus = computed(
   }
 }
 
-.button {
+.button,
+a {
   display: flex;
   align-items: center;
   flex-direction: column;
