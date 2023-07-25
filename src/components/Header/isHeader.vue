@@ -1,13 +1,13 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <div>
+      <router-link to="/">
         <img
           class="header__logo"
           src="/src/assets/images/icons/logo.svg"
           alt=""
         />
-      </div>
+      </router-link>
       <IsHamburger />
       <IsHeaderInput />
       <ul class="iconList">
