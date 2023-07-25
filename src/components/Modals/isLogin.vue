@@ -99,6 +99,10 @@ const closeModal = (): void => {
     position: absolute;
     top: 0;
     right: 0;
+    transition: $transition;
+    &:hover {
+      color: $dark;
+    }
   }
   &__title {
     font-size: 32px;
@@ -114,9 +118,9 @@ const closeModal = (): void => {
   &__buttons {
     margin-bottom: 20px;
     & button:first-child {
-      background-color: #21a038;
+      background-color: $green;
       &:hover {
-        background-color: #116b22;
+        background-color: $green-dark;
       }
     }
     & button:last-child {
