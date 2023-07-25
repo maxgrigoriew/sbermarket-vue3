@@ -12,7 +12,7 @@
       <IsHeaderInput />
       <ul class="iconList">
         <li class="iconList__item">
-          <isButton>
+          <isButton @click="store.commit('openModal')">
             <svg
               width="24"
               height="24"
@@ -33,7 +33,7 @@
           <IsNotification />
         </li>
         <li class="iconList__item">
-          <isButton>
+          <isButton @click="store.commit('openModal')">
             <svg
               width="24"
               height="24"

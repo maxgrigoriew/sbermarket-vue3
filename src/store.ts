@@ -33,7 +33,8 @@ export const store = createStore({
           id: 7,
           isFavoriteStatus: true
         }
-      ]
+      ],
+      isOpenLoginModal: true
     }
   },
   getters: {
@@ -53,6 +54,16 @@ export const store = createStore({
       if (findItem) {
         findItem.isFavoriteStatus = !findItem.isFavoriteStatus
       }
+    },
+
+    openModal(state) {
+      state.isOpenLoginModal = true
+      document.querySelector('body')?.classList.add('active')
+    },
+
+    closeModal(state) {
+      state.isOpenLoginModal = false
+      document.querySelector('body')?.classList.remove('active')
     }
   },
   actions: {
