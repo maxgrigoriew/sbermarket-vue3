@@ -33,7 +33,8 @@ export const store = createStore({
           isFavoriteStatus: true
         }
       ],
-      isOpenLoginModal: false
+      isOpenLoginModal: false,
+      isChecked: false
     }
   },
   getters: {
@@ -63,6 +64,12 @@ export const store = createStore({
     closeModal(state) {
       state.isOpenLoginModal = false
       document.querySelector('body')?.classList.remove('active')
+    },
+    changeChecked(state) {
+      state.isChecked = !state.isChecked
+    },
+    clearCheched(state) {
+      state.isChecked = false
     }
   },
   actions: {
