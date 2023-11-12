@@ -3,15 +3,14 @@
     class="input"
     type="text"
     :value="props.modelValue"
-    @input="updateValue($event.target.value)"
+    @input="
+      $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+    "
   />
 </template>
 <script setup lang="ts">
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps(['modelValue'])
-function updateValue(value: EventTarget) {
-  emit('update:modelValue', value)
-}
 </script>
 <style lang="scss">
 @import './/../../assets/scss/vars';
@@ -26,3 +25,6 @@ function updateValue(value: EventTarget) {
   display: block;
 }
 </style>
+
+function defineEmits(arg0: string[]) { throw new Error('Function not
+implemented.') }

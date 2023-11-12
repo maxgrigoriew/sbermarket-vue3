@@ -1,8 +1,8 @@
 interface Slider {
-  src: String
+  src: string
 }
 
-export const sliders: Slider = [
+export const sliders: Slider[] = [
   {
     src: 'images/top-slider/1.webp'
   },

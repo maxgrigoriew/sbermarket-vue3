@@ -23,7 +23,7 @@
             <li
               class="offer__item"
               v-for="item in historySearch"
-              :key="item"
+              :key="item.id"
               @click="addWordInput(item.title)"
             >
               <span class="offer__icon"
@@ -43,9 +43,9 @@
         <ul class="offer__list">
           <li
             class="offer__item"
-            v-for="item in 4"
-            :key="item"
-            @click="addWordInput(item)"
+            v-for="item in historySearch"
+            :key="item.id"
+            @click="addWordInput(item.title)"
           >
             <span class="offer__icon"
               ><font-awesome-icon icon="magnifying-glass"
@@ -61,10 +61,12 @@
 <script setup lang="ts">
 import isButton from './../UI/isButton.vue'
 import isInput from './../UI/isInput.vue'
+import { HistorySearch } from '../../types/types.ts'
 import { onMounted, ref } from 'vue'
 const input = ref('')
 const isOpenOffer = ref(false)
-let historySearch = ref([])
+
+let historySearch = ref<HistorySearch[]>([])
 
 const openOfferModal = () => (isOpenOffer.value = true)
 const closeOfferModal = () => (isOpenOffer.value = false)
@@ -78,12 +80,12 @@ const addLocalStorage = () => {
     id: number
     title: string
   }
-  const newSearhWord = {
+  const newSearchWord = {
     id: Date.now(),
     title: input.value.toLocaleLowerCase()
   } as NewSearchWord
   if (input.value) {
-    historySearch.value.push(newSearhWord)
+    historySearch.value.push(newSearchWord)
     localStorage.setItem('historySearch', JSON.stringify(historySearch.value))
     closeOfferModal()
   }
@@ -211,3 +213,4 @@ onMounted(() => {
   }
 }
 </style>
+../../types/historySearch.ts ../../types/types.ts

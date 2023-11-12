@@ -1,5 +1,8 @@
 <template>
   <is-login />
+  <div class="block">
+    <img src="/public/images/top-slider/1.webp" alt="" />
+  </div>
   <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
   <isPromo class="mb" />
   <div class="banner">
@@ -27,6 +30,11 @@ import { promoSliders } from './../data-test/promo-slider.ts'
 
 <style lang="scss" scoped>
 @import './../assets/scss/vars';
+.block img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
 .main {
   padding-top: 40px;
 }

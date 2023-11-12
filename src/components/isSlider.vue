@@ -32,9 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, PropType } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
+import { Slider } from '../types/types.ts'
 import 'swiper/css'
 
 const props = defineProps({
@@ -44,7 +45,7 @@ const props = defineProps({
     require: true
   },
   sliders: {
-    type: [],
+    type: Array as PropType<Slider[]>,
     require: true
   },
   height: {

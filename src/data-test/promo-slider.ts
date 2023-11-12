@@ -1,8 +1,6 @@
-interface Slider {
-  src: String
-}
+import { Slider } from '../types/types.ts'
 
-export const promoSliders: Slider = [
+export const promoSliders: Slider[] = [
   {
     src: 'images/promo-slider/1.webp'
   },
