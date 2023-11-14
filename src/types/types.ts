@@ -4,5 +4,5 @@ export interface HistorySearch {
 }
 
 export interface Slider {
-  src: String
+  src: string
 }

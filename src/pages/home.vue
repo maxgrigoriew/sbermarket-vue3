@@ -1,8 +1,5 @@
 <template>
   <is-login />
-  <div class="block">
-    <img src="/public/images/top-slider/1.webp" alt="" />
-  </div>
   <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
   <isPromo class="mb" />
   <div class="banner">
@@ -17,15 +14,16 @@
   />
 
   <isShockSlider :slidesPerView="6" style="margin-bottom: 80px" />
+  <isCookie />
 </template>
 
 <script setup lang="ts">
 import isPromo from '../components/isPromo.vue'
 import isSlider from './../components/isSlider.vue'
 import isShockSlider from './../components/isShockSlider.vue'
+import isCookie from './../components/Modals/isCookie.vue'
 import { sliders } from './../data-test/top-slider.ts'
 import { promoSliders } from './../data-test/promo-slider.ts'
-// import IsLogin from '../components/Modals/isLogin.vue'
 </script>
 
 <style lang="scss" scoped>

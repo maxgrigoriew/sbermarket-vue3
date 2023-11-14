@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import isButton from './../UI/isButton.vue'
+
+const isOpen = ref(true)
+
+const closeModal = () => {
+  isOpen.value = false
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    isOpen.value = false
+  }, 5000)
+})
+</script>
 <template>
   <transition name="fade">
     <div class="noty" v-if="isOpen" v-click-outside="closeModal">
@@ -20,16 +36,6 @@
   </transition>
 </template>
 
-<script setup lang="ts">
-import isButton from './../UI/isButton.vue'
-import { ref } from 'vue'
-
-const isOpen = ref(true)
-
-const closeModal = () => {
-  isOpen.value = false
-}
-</script>
 <style lang="scss" scoped>
 .noty {
   @import './../../assets/scss/vars';
@@ -45,15 +51,16 @@ const closeModal = () => {
   &::before {
     content: '';
     position: absolute;
-    top: -23px;
+    top: 10px;
     left: 30%;
     z-index: 1;
-    transform: rotateX(180deg) rotateY(180deg);
-    transform: scaleX(-1) scaleY(-1);
     width: 40px;
     height: 40px;
-    background-image: url('../../assets/images/icons/triangle.svg');
+    background-color: #1c1f22;
     background-repeat: no-repeat;
+    z-index: -1;
+    rotate: 50deg;
+    transform: skew(50deg, 0);
   }
   &__close {
     position: absolute;

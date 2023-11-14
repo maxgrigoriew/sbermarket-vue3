@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useStore } from 'vuex'
+
+const store = useStore()
+</script>
+
 <template>
   <div class="basket">
     <h2 class="basket__title">Корзина</h2>
@@ -11,12 +17,15 @@
         В корзине пока пусто. <br />
         Войдите и получайте бонусы за покупки
       </p>
-      <isButton class="btn btn-outline empty-basket__btn">Войти</isButton>
+      <isButton
+        class="btn btn-outline empty-basket__btn"
+        @click="store.commit('openModal')"
+        >Войти</isButton
+      >
     </div>
   </div>
+  <is-login />
 </template>
-
-<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 @import './../assets/scss/vars';
