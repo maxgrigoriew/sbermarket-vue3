@@ -67,7 +67,6 @@ const input = ref('')
 const isOpenOffer = ref(false)
 
 let historySearch = ref<HistorySearch[]>([])
-
 const openOfferModal = () => (isOpenOffer.value = true)
 const closeOfferModal = () => (isOpenOffer.value = false)
 const addWordInput = (item: string) => {
@@ -97,9 +96,11 @@ const clearHistory = () => {
 }
 
 const clearHistoryItem = (id: number) => {
-  historySearch.value = historySearch.value.filter((searchWord: any) => {
-    return searchWord.id !== id
-  })
+  historySearch.value = historySearch.value.filter(
+    (searchWord: HistorySearch) => {
+      return searchWord.id !== id
+    }
+  )
   localStorage.setItem('historySearch', JSON.stringify(historySearch.value))
   input.value = ''
 }
@@ -213,4 +214,4 @@ onMounted(() => {
   }
 }
 </style>
-../../types/historySearch.ts ../../types/types.ts
+../../types/historySearch.ts ../../types/types.ts ../../types.ts

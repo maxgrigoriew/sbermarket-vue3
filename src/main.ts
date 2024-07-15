@@ -6,7 +6,8 @@ import './assets/scss/main.scss'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { store } from './store.ts'
+import { store } from './store/store.ts'
+import { createPinia } from 'pinia'
 
 import {
   faBars,
@@ -42,9 +43,11 @@ library.add(
 import { components } from './components.ts'
 
 const app = createApp(App)
+const pinia = createPinia()
 
 app.use(vClickOutside)
 app.use(store)
+app.use(pinia)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 Object.entries(components).forEach(([name, component]) => {

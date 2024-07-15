@@ -1,6 +1,8 @@
 <template>
   <is-login />
-  <isSlider class="mb" :slidesPerView="1.3" :sliders="sliders" />
+  <isSlider class="mb"
+            :slidesPerView="1.3"
+            :sliders="sliders" />
   <isPromo class="mb" />
   <div class="banner">
     <img src="/public/images/promo-slider/3.webp" alt="" />

@@ -22,6 +22,10 @@ const props = defineProps({
   radius: {
     type: String,
     default: '32px'
+  },
+  spaceBetween: {
+    type: Number,
+    default: 24
   }
 })
 
@@ -32,18 +36,17 @@ const next = ref(null)
 <template>
   <div class="wrapper">
     <swiper
+      loop
+
       :slides-per-view="props.slidesPerView"
-      :space-between="24"
+      :space-between="spaceBetween"
       :modules="[Navigation, Pagination, Autoplay]"
       :navigation="{
         prevEl: prev,
         nextEl: next
       }"
       :pagination="{ clickable: true }"
-      loop
-      :autoplay="{
-        delay: 3000
-      }"
+      :autoplay="{ delay: 3000 }"
     >
       <swiper-slide
         class="slider"
@@ -68,48 +71,56 @@ const next = ref(null)
 
 <style lang="scss" scoped>
 @import './../assets/scss/vars.scss';
+
 .wrapper {
   position: relative;
 }
+
 .slider {
   overflow: hidden;
   position: relative;
+
   & img {
-    width: 100%;
-    display: block;
+    width:         100%;
+    display:       block;
     border-radius: $big;
-    object-fit: cover;
+    object-fit:    cover;
   }
 
   &__arrow {
-    position: absolute;
-    z-index: 20 !important;
-    top: 50%;
-    z-index: 20000;
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50%;
+    position:         absolute;
+    z-index:          20 !important;
+    top:              50%;
+    z-index:          20000;
+    width:            50px !important;
+    height:           50px !important;
+    border-radius:    50%;
     background-color: $light;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: $shadow;
+    display:          flex;
+    justify-content:  center;
+    align-items:      center;
+    cursor:           pointer;
+    box-shadow:       $shadow;
+
     &:hover {
       color: $accent;
     }
   }
+
   &__arrow.swiper-button-disabled {
     opacity: 0.5;
-    cursor: auto;
+    cursor:  auto;
   }
+
   &__arrow.left {
-    left: -25px;
+    left:      -25px;
     transform: translate(0, -50%) rotate(90deg);
   }
+
   &__arrow.right {
-    right: -25px;
+    right:     -25px;
     transform: translate(0, -50%) rotate(-90deg);
   }
 }
 </style>
+../types.ts
