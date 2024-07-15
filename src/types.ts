@@ -6,3 +6,9 @@ export interface HistorySearch {
 export interface Slider {
   src: string
 }
+
+
+export interface UserInfo {
+  name: string
+  age: number
+}

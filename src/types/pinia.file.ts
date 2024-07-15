@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
+import { UserInfo } from '../types.ts'
 
 interface State {
   userList: UserInfo[]
-  user: UserInfo | null
+  user: number | null
 }
 
 export const useUserStore = defineStore('user', {
@@ -14,7 +15,3 @@ export const useUserStore = defineStore('user', {
   }
 })
 
-interface UserInfo {
-  name: string
-  age: number
-}
