@@ -5,6 +5,11 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  @include scrollbar;
+}
+
 body {
   font-size: 16px;
   line-height: 1.5;

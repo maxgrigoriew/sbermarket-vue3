@@ -49,7 +49,7 @@ const closeModal = (): void => {
 </script>
 
 <style lang="scss">
-@import './../../assets//scss/vars';
+@import './../../assets/scss/vars';
 .login {
   position: fixed;
   left: 0;

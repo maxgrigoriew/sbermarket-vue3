@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { UserInfo } from '../types.ts'
+import { UserInfo } from './types.ts'
 
 interface State {
   userList: UserInfo[]

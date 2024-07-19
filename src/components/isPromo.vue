@@ -1,5 +1,5 @@
 <template>
-  <ul class="promo">
+  <ul class="promo" v-focus>
     <li class="promo__item" v-for="item in 4" :key="item">
       <img src="/public/images/promo-slider/1.webp" alt="" />
     </li>

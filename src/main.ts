@@ -41,6 +41,7 @@ library.add(
 )
 
 import { components } from './components.ts'
+import directives from './directives.ts'
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -52,6 +53,10 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 Object.entries(components).forEach(([name, component]) => {
   app.component(name, component)
+})
+
+Object.entries(directives).forEach(([name, directive]) => {
+  app.directive(name, directive)
 })
 
 app.use(router).mount('#app')

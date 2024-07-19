@@ -47,10 +47,10 @@
             :key="item.id"
             @click="addWordInput(item.title)"
           >
-            <span class="offer__icon"
-              ><font-awesome-icon icon="magnifying-glass"
-            /></span>
-            <span class="offer__text">Сахар + {{ item }}</span>
+            <span class="offer__icon">
+              <font-awesome-icon icon="magnifying-glass" />
+            </span>
+            <span class="offer__text">{{ item.title }}</span>
           </li>
         </ul>
       </div>
@@ -63,6 +63,7 @@ import isButton from './../UI/isButton.vue'
 import isInput from './../UI/isInput.vue'
 import { HistorySearch } from '../../types/types.ts'
 import { onMounted, ref } from 'vue'
+
 const input = ref('')
 const isOpenOffer = ref(false)
 
@@ -79,6 +80,7 @@ const addLocalStorage = () => {
     id: number
     title: string
   }
+
   const newSearchWord = {
     id: Date.now(),
     title: input.value.toLocaleLowerCase()
@@ -114,104 +116,121 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import './../../assets/scss/vars';
+
 .header-input {
   position: relative;
-  width: 100%;
+  width:    100%;
+
   &__btn {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
+    position:         absolute;
+    right:            5px;
+    top:              50%;
+    transform:        translateY(-50%);
     background-color: $accent;
-    width: 42px;
-    height: 42px;
-    color: $light;
+    width:            42px;
+    height:           42px;
+    color:            $light;
+
     &:hover {
       background-color: $accent-dark;
     }
   }
 }
+
 .headerInputComponent {
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border: 2px solid $light;
-  box-shadow:
-    0 0 2px rgba(0, 0, 0, 0.08),
-    0 2px 24px rgba(0, 0, 0, 0.06);
-  outline: none;
+  border-bottom-left-radius:  0;
+  border:                     2px solid $light;
+  box-shadow:                 0 0 2px rgba(0, 0, 0, 0.08),
+                              0 2px 24px rgba(0, 0, 0, 0.06);
+  outline:                    none;
 }
+
 .offer {
-  position: absolute;
-  top: 50px;
-  background-color: #fff;
-  left: 0;
-  right: 0;
-  min-height: 100px;
-  box-shadow: $shadow;
-  padding-top: $pre-big;
+  position:                   absolute;
+  top:                        50px;
+  background-color:           #fff;
+  left:                       0;
+  right:                      0;
+  min-height:                 100px;
+  box-shadow:                 $shadow;
+  padding-top:                $pre-big;
   border-bottom-right-radius: $pre-big;
-  border-bottom-left-radius: $pre-big;
-  color: $black;
-  font-size: 14px;
-  z-index: 10;
-  padding: $pre-big 0;
+  border-bottom-left-radius:  $pre-big;
+  color:                      $black;
+  font-size:                  14px;
+  z-index:                    10;
+  padding:                    $pre-big 0;
+
   &__history {
     &-list {
       padding-bottom: $pre-big;
     }
+
     &-top {
-      display: flex;
-      padding: 0 $pre-big;
+      display:         flex;
+      padding:         0 $pre-big;
       justify-content: space-between;
-      margin-bottom: 6px;
+      margin-bottom:   6px;
     }
+
     &-title {
-      font-weight: 700;
+      font-weight:  700;
       margin-right: 10px;
     }
+
     &-btn {
-      color: $gray;
+      color:      $gray;
       transition: $transition;
+
       &:hover {
         color: $accent;
       }
     }
+
     &-close {
-      transition: $transition;
+      transition:  $transition;
       margin-left: auto;
-      color: $gray;
+      color:       $gray;
+
       &:hover {
         color: $accent;
       }
     }
   }
+
   &__item {
-    cursor: pointer;
+    cursor:     pointer;
     transition: $transition;
-    padding: 5px $pre-big;
-    display: flex;
+    padding:    5px $pre-big;
+    display:    flex;
+
     &:hover {
       background-color: $gray-light;
     }
+
     &:hover .offer__text {
       color: $accent;
     }
   }
+
   &__item:not(:last-child) {
     margin-bottom: 6px;
   }
+
   &__title {
-    font-weight: 700;
-    padding: 0 $pre-big;
+    font-weight:   700;
+    padding:       0 $pre-big;
     margin-bottom: 6px;
   }
+
   &__icon {
     margin-right: 10px;
-    color: $gray;
+    color:        $gray;
   }
+
   &__text {
     transition: $transition;
   }
 }
 </style>
-../../types/historySearch.ts ../../types/types.ts ../../types.ts

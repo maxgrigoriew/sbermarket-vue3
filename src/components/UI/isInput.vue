@@ -9,11 +9,11 @@
   />
 </template>
 <script setup lang="ts">
-const emit = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 const props = defineProps(['modelValue'])
 </script>
 <style lang="scss">
-@import './/../../assets/scss/vars';
+@import './../../assets/scss/vars';
 
 .input {
   border: 2px solid $accent;
@@ -25,6 +25,3 @@ const props = defineProps(['modelValue'])
   display: block;
 }
 </style>
-
-function defineEmits(arg0: string[]) { throw new Error('Function not
-implemented.') }

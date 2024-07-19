@@ -1,4 +1,4 @@
-import { Slider } from '../types.ts'
+import { Slider } from '../types/types.ts'
 
 export const promoSliders: Slider[] = [
   {
