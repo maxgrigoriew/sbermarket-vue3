@@ -1,4 +1,23 @@
-<template>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+import isPromo from '../components/isPromo.vue'
+import isSlider from './../components/isSlider.vue'
+import isShockSlider from './../components/isShockSlider.vue'
+import isCookie from './../components/Modals/isCookie.vue'
+
+import { sliders } from './../data-test/top-slider.ts'
+import { promoSliders } from './../data-test/promo-slider.ts'
+import { search } from './../restapi/brand'
+
+const brand = ref([])
+
+onMounted(async () => {
+  brand.value = await search()
+})
+</script>
+
+<template>12
   <is-login />
   <isSlider class="mb"
             :slidesPerView="1.3"
@@ -19,35 +38,31 @@
   <isCookie />
 </template>
 
-<script setup lang="ts">
-import isPromo from '../components/isPromo.vue'
-import isSlider from './../components/isSlider.vue'
-import isShockSlider from './../components/isShockSlider.vue'
-import isCookie from './../components/Modals/isCookie.vue'
-import { sliders } from './../data-test/top-slider.ts'
-import { promoSliders } from './../data-test/promo-slider.ts'
-</script>
-
 <style lang="scss" scoped>
 @import './../assets/scss/vars';
+
 .block img {
-  width: 400px;
-  height: 400px;
+  width:      400px;
+  height:     400px;
   object-fit: cover;
 }
+
 .main {
   padding-top: 40px;
 }
+
 .mb {
   margin-bottom: 80px;
 }
+
 .banner {
   margin-bottom: $big;
+
   & img {
-    width: 100%;
-    height: 170px;
+    width:         100%;
+    height:        170px;
     border-radius: $middle;
-    object-fit: cover;
+    object-fit:    cover;
   }
 }
 </style>
